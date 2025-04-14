@@ -3,7 +3,7 @@ from collections import Counter
 import math
 import csv
 
-'#####################################################################################'
+#####################################################################################
 'Exercise number 7 // Need to perform validation before attempting to open a file.'
 
 '''Write a python application that checks similarity between two texts. It takes a file or a 
@@ -22,13 +22,13 @@ def cleantext(filename):
         list_cleaned_sw = [word for word in list_of_words if word not in stop_words]
     return list_cleaned_sw
 
-# Función para crear vectores de frecuencia
+# Function to create frequency vectors
 def create_frequency_vector(words, vocabulary):
     word_count = Counter(words)
     return [word_count.get(word, 0) for word in vocabulary]
 
 
-# Función para calcular similitud del coseno
+# Function to calculate cosine similarity
 def cosine_similarity_manual(vec1, vec2):
     dot_product = sum(a * b for a, b in zip(vec1, vec2))
     magnitude1 = math.sqrt(sum(a ** 2 for a in vec1))
@@ -43,11 +43,11 @@ def similarity(first_speech,second_speech):
 
     vocabulary = list(set(words1 + words2))
 
-     # Crear vectores
+     # Create vectors
     vec1 = create_frequency_vector(words1, vocabulary)
     vec2 = create_frequency_vector(words2, vocabulary)
 
-     # Calcular similitud
+     # Calculate similarity
     similarity_score = cosine_similarity_manual(vec1, vec2)
 
     return f"Similarity between '{first_speech}' and '{second_speech}' speeches: {similarity_score:.2f}"
@@ -55,7 +55,7 @@ def similarity(first_speech,second_speech):
 
 print(similarity('michelle','melina'))
 
-'#####################################################################################'
+#####################################################################################
 
 '''Exercise number 8 // Find the 10 most repeated words in the romeo_and_juliet.txt.'''
 
@@ -67,7 +67,7 @@ with open('./data/romeo_and_juliet.txt') as text_book:
     counted_words = Counter(list_of_words_cleaned_of_sw).most_common(10)
 print(counted_words)
 
-'#####################################################################################'
+#####################################################################################
 
 '''Exercise number 9 // Read the hacker news csv file and find out: 
 a) Count the number of lines containing python or Python 
@@ -76,7 +76,7 @@ c) Count the number lines containing Java and not JavaScript'''
 
 searched_word = ['python','javascript','java']
 
-# Inicializar los contadores con las palabras clave como claves
+# Initialize the counters with the keywords as keys
 word_counts = {key: 0 for key in searched_word}
 java_not_javascript_count = 0
 
@@ -86,11 +86,11 @@ try:
     with open('./data/hacker_news.csv') as hacker_news:
         cvs_reader = csv.reader(hacker_news, delimiter=',')
         for row in cvs_reader:
-            line = ' '.join(row) # unir los campos y convertir a minúsculas
+            line = ' '.join(row) # merge fields and convert to lowercase
             for word in searched_word:
                  if word in line:
                     word_counts[word] += 1
-            # Contar líneas que contienen 'java' pero NO 'javascript'
+            # Count lines that contain 'java' but NOT 'javascript'
             if 'java' in line and 'javascript' not in line:
                 java_not_javascript_count += 1
     
@@ -100,4 +100,3 @@ try:
                     
 except IOError:
         print("Error opening or reading input file")
-
