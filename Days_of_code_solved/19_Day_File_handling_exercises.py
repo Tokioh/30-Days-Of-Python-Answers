@@ -4,6 +4,8 @@ import math
 import csv
 
 #####################################################################################
+print('\nExercise number 7:')
+
 'Exercise number 7 // Need to perform validation before attempting to open a file.'
 
 '''Write a python application that checks similarity between two texts. It takes a file or a 
@@ -56,6 +58,7 @@ def similarity(first_speech,second_speech):
 print(similarity('michelle','melina'))
 
 #####################################################################################
+print('\nExercise number 8:')
 
 '''Exercise number 8 // Find the 10 most repeated words in the romeo_and_juliet.txt.'''
 
@@ -68,6 +71,7 @@ with open('./data/romeo_and_juliet.txt') as text_book:
 print(counted_words)
 
 #####################################################################################
+print('\nExercise number 9:')
 
 '''Exercise number 9 // Read the hacker news csv file and find out: 
 a) Count the number of lines containing python or Python 
