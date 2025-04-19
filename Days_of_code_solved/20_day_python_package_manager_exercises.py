@@ -33,7 +33,7 @@ try:
     the_most_frequent_words(book.lower())
 
 except requests.exceptions.RequestException as e:
-    print(f"Error al obtener los datos: {e}")
+    print(f"Error getting data: {e}")
 
 
 #######################################################################
@@ -129,7 +129,7 @@ try:
         print(f"{key.capitalize()}: {value}")
 
 except requests.exceptions.RequestException as e:
-    print(f"Error al obtener los datos: {e}")
+    print(f"Error getting data: {e}")
 
 
 #######################################################################
@@ -181,7 +181,7 @@ try:
     print(f'\nthe number of languages are: {total_languages}')
 
 except requests.exceptions.RequestException as e:
-    print(f"Error al obtener los datos: {e}")
+    print(f"Error getting data: {e}")
 
 #######################################################################
 
